@@ -110,6 +110,6 @@ Caso você deseje integrar com um login real, basta configurar o token no localS
 
 ## 🙌 Autor
 
-`Bruno Vieira`
-`💻 Full Stack .NET + React`
-`🔗 linkedin.com/in/brunojpv`
+**Bruno Vieira**  
+💻 Full Stack .NET + React  
+🔗 [linkedin.com/in/brunojpv](https://www.linkedin.com/in/brunojpv)
