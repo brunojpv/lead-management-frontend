@@ -82,10 +82,11 @@ const data = await res.json()
 
 ## 🛠️ Scripts úteis
 
-####  Comando            Ação
-##### npm run dev        Roda o projeto em dev
-##### npm run build      Gera build otimizado
-##### npm run preview    Visualiza o build localmente
+| Comando           | Ação                         |
+|-------------------|------------------------------|
+| `npm run dev`     | Roda o projeto em modo dev   |
+| `npm run build`   | Gera build otimizado         |
+| `npm run preview` | Visualiza o build localmente |
 
 ---
 
@@ -98,9 +99,10 @@ Caso você deseje integrar com um login real, basta configurar o token no localS
 
 ## 🤝 Comunicação com o back-end
 
-Front-End	               Back-End
-http://localhost:5173    http://localhost:5000
-Porta do Vite	           Porta do ASP.NET Core API
+| Front-End	              | Back-End                  |
+|-------------------------|---------------------------|
+| `http://localhost:5173` | http://localhost:5000     |
+| `Porta do Vite`	        | Porta do ASP.NET Core API |
 
 ✔️ CORS já está habilitado no back para localhost:5173
 
