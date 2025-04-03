@@ -82,10 +82,10 @@ const data = await res.json()
 
 ## 🛠️ Scripts úteis
 
-Comando            Ação
-npm run dev        Roda o projeto em dev
-npm run build      Gera build otimizado
-npm run preview    Visualiza o build localmente
+####  Comando            Ação
+##### npm run dev        Roda o projeto em dev
+##### npm run build      Gera build otimizado
+##### npm run preview    Visualiza o build localmente
 
 ---
 
