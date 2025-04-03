@@ -50,9 +50,9 @@ VITE_API_URL=http://localhost:5000
 
 ### ▶️ 4. Rode o projeto
 
-'''
+```
 npm run dev
-'''
+```
 
 ### Acesse:
 
@@ -109,6 +109,7 @@ Caso você deseje integrar com um login real, basta configurar o token no localS
 ---
 
 ## 🙌 Autor
+
 Bruno Vieira
 💻 Full Stack .NET + React
 🔗 linkedin.com/in/brunojpv
