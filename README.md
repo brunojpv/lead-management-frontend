@@ -62,12 +62,14 @@ npm run dev
 
 ## 🧩 Estrutura do projeto
 
+```
 lead-management-frontend
 ├── src
 │   ├── components         # Componentes reutilizáveis (LeadCard, Button, etc)
 │   ├── features/leads     # Lógica de leads (hooks, api, pages)
 │   ├── types              # Tipos TypeScript globais
 │   └── App.tsx            # Root da aplicação com tabs
+```
 
 ---
 
@@ -87,13 +89,6 @@ const data = await res.json()
 | `npm run dev`     | Roda o projeto em modo dev   |
 | `npm run build`   | Gera build otimizado         |
 | `npm run preview` | Visualiza o build localmente |
-
----
-
-## 🔐 Sobre autenticação
-
-O front está preparado para enviar JWT fake nos testes (header Authorization).
-Caso você deseje integrar com um login real, basta configurar o token no localStorage e ajustar a chamada da API.
 
 ---
 
