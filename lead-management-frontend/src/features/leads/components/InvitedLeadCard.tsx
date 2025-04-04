@@ -53,19 +53,31 @@ export function InvitedLeadCard({ lead, onAccept, onDecline }: Props) {
         <hr className="my-6 border-t border-gray-200" />
 
         {/* Grade com dados principais */}
-        <div className="grid grid-cols-4 gap-x-8 gap-y-4 text-sm text-muted-foreground mb-6">
-          <div className="flex items-center gap-2">
-            <MapPin className="w-4 h-4" />
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(4, auto)",
+            gap: "2px 8px",
+            fontSize: "14px",
+            color: "#6b7280",
+            marginBottom: "12px",
+            alignItems: "center"
+          }}
+        >
+          <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
+            <MapPin style={{ width: "14px", height: "14px" }} />
             <span>{lead.suburb}</span>
           </div>
-          <div className="flex items-center gap-2">
-            <Briefcase className="w-4 h-4" />
+
+          <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
+            <Briefcase style={{ width: "14px", height: "14px" }} />
             <span>{lead.category}</span>
           </div>
-          <div className="flex items-center gap-2">
-            <span className="text-muted-foreground">Job ID:</span>
-            <span className="font-medium">{lead.id.slice(0, 6).toUpperCase()}</span>
-          </div>          
+
+          <div>
+            Job ID:{" "}
+            <span>{lead.id.slice(0, 6).toUpperCase()}</span>
+          </div>         
         </div>
 
         <hr className="my-6 border-t border-gray-200" />

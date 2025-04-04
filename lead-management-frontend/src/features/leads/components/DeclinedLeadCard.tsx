@@ -49,33 +49,62 @@ export function DeclinedLeadCard({ lead }: Props) {
 
         <hr className="my-4 border-t border-gray-200" />
 
-        <div className="grid grid-cols-4 gap-x-8 gap-y-4 text-sm text-muted-foreground mb-6">
-          <div className="flex items-center gap-1">
-            <MapPin className="w-4 h-4" />
+              
+        {/* Dados organizados em grade */}
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(4, auto)",
+            gap: "2px 8px",
+            fontSize: "14px",
+            color: "#6b7280",
+            marginBottom: "12px",
+            alignItems: "center"
+          }}
+        >
+          <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
+            <MapPin style={{ width: "14px", height: "14px" }} />
             <span>{lead.suburb}</span>
           </div>
-          <div className="flex items-center gap-1">
-            <Briefcase className="w-4 h-4" />
+
+          <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
+            <Briefcase style={{ width: "14px", height: "14px" }} />
             <span>{lead.category}</span>
           </div>
-          <div>Job ID:
-            <span className="font-medium">{lead.id.slice(0, 6).toUpperCase()}</span>
+
+          <div>
+            Job ID:{" "}
+            <span>{lead.id.slice(0, 6).toUpperCase()}</span>
           </div>
-          <div className="text-sm font-semibold text-muted-foreground text-right">
+
+          <div style={{ textAlign: "left" }}>
             ${lead.price.toFixed(2)} Lead Invitation
           </div>
         </div>
 
         <hr className="my-4 border-t border-gray-200" />
 
-        <div className="grid grid-cols-2 gap-x-8 gap-y-4 text-sm text-muted-foreground mb-6">
-          <div className="flex items-center gap-1">
-            <Phone className="w-4 h-4" style={{ color: "#ea580c" }} />
-            <span style={{ color: "#ea580c" }}>{lead.phoneNumber}</span>
+  
+        {/* Dados de contato */}  
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(2, auto)",
+            gap: "2px 8px",
+            fontSize: "14px",
+            color: "#ea580c",
+            marginBottom: "12px",
+            alignItems: "center"
+          }}
+        >
+          <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
+            <Phone style={{ width: "14px", height: "14px", color: "#ea580c" }} />
+            <span>{lead.phoneNumber}</span>
           </div>
-          <div className="flex items-center gap-1">
-            <Mail className="w-4 h-4" style={{ color: "#ea580c" }} />
-            <span style={{ color: "#ea580c" }}>{lead.email}</span>
+
+          <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
+            <Mail style={{ width: "14px", height: "14px", color: "#ea580c" }} />
+            <span>{lead.email}</span>
           </div>
         </div>
 
