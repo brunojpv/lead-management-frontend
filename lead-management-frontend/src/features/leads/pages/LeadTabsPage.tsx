@@ -78,11 +78,11 @@ export default function LeadTabsPage() {
           <TabsContent value="accepted">
             {accepted.loading && <p className="text-muted-foreground">Carregando...</p>}
             
-            <div className="grid gap-y-12">
-              {accepted.leads.map((lead) => (
+            {accepted.leads.map((lead) => (
+              <div key={lead.id} style={{ marginBottom: "24px" }}>
                 <AcceptedLeadCard key={lead.id} lead={lead} />
-              ))}
-            </div>
+              </div>
+            ))}
 
             <div className="flex justify-between mt-6">
               <Button onClick={() => setAcceptedPage((p) => Math.max(1, p - 1))} disabled={acceptedPage === 1}>
@@ -100,11 +100,12 @@ export default function LeadTabsPage() {
           {/* Declined */}
           <TabsContent value="declined">
             {declined.loading && <p className="text-muted-foreground">Carregando...</p>}
-            <div className="grid gap-y-12">
-              {declined.leads.map((lead) => (
+            
+            {declined.leads.map((lead) => (
+              <div key={lead.id} style={{ marginBottom: "24px" }}>
                 <DeclinedLeadCard key={lead.id} lead={lead} />
-              ))}
-            </div>
+              </div>
+            ))}
 
             <div className="flex justify-between mt-6">
               <Button onClick={() => setDeclinedPage((p) => Math.max(1, p - 1))} disabled={declinedPage === 1}>
