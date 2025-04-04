@@ -51,16 +51,15 @@ export default function LeadTabsPage() {
           <TabsContent value="invited">
             {invited.loading && <p className="text-muted-foreground">Carregando...</p>}
 
-            <div className="flex flex-col gap-6">
-              {invited.leads.map((lead) => (
+            {invited.leads.map((lead) => (
+              <div key={lead.id} style={{ marginBottom: "24px" }}>
                 <InvitedLeadCard
-                  key={lead.id}
                   lead={lead}
                   onAccept={() => handleAccept(lead.id)}
                   onDecline={() => handleDecline(lead.id)}
                 />
-              ))}
-            </div>
+              </div>
+            ))}
 
             <div className="flex justify-between mt-6">
               <Button onClick={() => setInvitedPage((p) => Math.max(1, p - 1))} disabled={invitedPage === 1}>
