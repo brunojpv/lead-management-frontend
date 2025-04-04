@@ -14,7 +14,7 @@ export function AcceptedLeadCard({ lead }: Props) {
     <Card className="shadow-sm border rounded-md mb-6">
       <CardContent className="p-6">
         {/* Cabeçalho */}
-        <div className="grid grid-cols-2 gap-x-8 gap-y-4 text-sm text-muted-foreground mb-6">
+        <div style={{ display: "flex", alignItems: "center", gap: "24px", marginBottom: "24px" }}>
           {/* Avatar circular com letra inicial */}
           <div
             style={{
@@ -23,18 +23,25 @@ export function AcceptedLeadCard({ lead }: Props) {
               backgroundColor: "#ea580c",
               color: "#ffffff",
               fontSize: "24px",
+              borderRadius: "9999px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              fontWeight: "bold",
+              textTransform: "uppercase",
+              boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
+              minWidth: "64px"
             }}
-            className="rounded-full flex items-center justify-center font-bold uppercase shadow-sm"
           >
             {lead.firstName.charAt(0)}
           </div>
 
           {/* Nome e data */}
           <div>
-            <div className="text-base font-semibold">
+            <div style={{ fontSize: "16px", fontWeight: "bold", color: "#000", marginBottom: "4px" }}>
               {lead.firstName} {lead.lastName}
             </div>
-            <div className="text-sm text-muted-foreground">
+            <div style={{ fontSize: "14px", color: "#6b7280" /* gray-500 */ }}>
               {formattedDate}
             </div>
           </div>
