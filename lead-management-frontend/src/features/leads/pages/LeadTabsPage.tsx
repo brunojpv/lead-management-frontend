@@ -42,15 +42,16 @@ export default function LeadTabsPage() {
 
         <Tabs defaultValue="invited" className="w-full">
           <TabsList className="flex justify-center bg-muted rounded-lg mb-4">
-            <TabsTrigger style={{backgroundColor: "#FFFFFF",  color: "#000000" }} value="invited">📨 Invited</TabsTrigger>
-            <TabsTrigger style={{backgroundColor: "#FFFFFF",  color: "#000000" }} value="accepted">✅ Accepted</TabsTrigger>
-            <TabsTrigger style={{backgroundColor: "#FFFFFF",  color: "#000000" }} value="declined">❌ Declined</TabsTrigger>
+            <TabsTrigger style={{ backgroundColor: "#FFFFFF", color: "#000000" }} value="invited">📨 Invited</TabsTrigger>
+            <TabsTrigger style={{ backgroundColor: "#FFFFFF", color: "#000000" }} value="accepted">✅ Accepted</TabsTrigger>
+            <TabsTrigger style={{ backgroundColor: "#FFFFFF", color: "#000000" }} value="declined">❌ Declined</TabsTrigger>
           </TabsList>
 
           {/* Invited */}
           <TabsContent value="invited">
             {invited.loading && <p className="text-muted-foreground">Carregando...</p>}
-            <div className="grid gap-4">
+
+            <div className="flex flex-col gap-6">
               {invited.leads.map((lead) => (
                 <InvitedLeadCard
                   key={lead.id}
@@ -77,7 +78,8 @@ export default function LeadTabsPage() {
           {/* Accepted */}
           <TabsContent value="accepted">
             {accepted.loading && <p className="text-muted-foreground">Carregando...</p>}
-            <div className="grid gap-4">
+            
+            <div className="grid gap-y-12">
               {accepted.leads.map((lead) => (
                 <AcceptedLeadCard key={lead.id} lead={lead} />
               ))}
@@ -99,7 +101,7 @@ export default function LeadTabsPage() {
           {/* Declined */}
           <TabsContent value="declined">
             {declined.loading && <p className="text-muted-foreground">Carregando...</p>}
-            <div className="grid gap-4">
+            <div className="grid gap-y-12">
               {declined.leads.map((lead) => (
                 <DeclinedLeadCard key={lead.id} lead={lead} />
               ))}

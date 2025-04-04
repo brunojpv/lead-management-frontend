@@ -11,21 +11,38 @@ export function DeclinedLeadCard({ lead }: Props) {
   const formattedDate = format(new Date(lead.createdAt), "MMMM d yyyy @ h:mm a")
 
   return (
-    <Card className="shadow-md border rounded-sm">
+    <Card className="shadow-sm border rounded-md mb-6">
       <CardContent className="p-5">
-        <div className="flex items-center gap-4 mb-4">
-          <div className="w-12 h-12 bg-red-500 text-white rounded-full flex items-center justify-center text-xl font-bold">
+        {/* Cabeçalho */}
+        <div className="grid grid-cols-2 gap-x-8 gap-y-4 text-sm text-muted-foreground mb-6">
+          {/* Avatar circular com letra inicial */}
+          <div
+            style={{
+              width: "64px",
+              height: "64px",
+              backgroundColor: "#ea580c",
+              color: "#ffffff",
+              fontSize: "24px",
+            }}
+            className="rounded-full flex items-center justify-center font-bold uppercase shadow-sm"
+          >
             {lead.firstName.charAt(0)}
           </div>
+
+          {/* Nome e data */}
           <div>
-            <div className="text-base font-semibold">{lead.firstName} {lead.lastName}</div>
-            <div className="text-sm text-muted-foreground">{formattedDate}</div>
+            <div className="text-base font-semibold">
+              {lead.firstName} {lead.lastName}
+            </div>
+            <div className="text-sm text-muted-foreground">
+              {formattedDate}
+            </div>
           </div>
         </div>
 
         <hr className="my-4 border-t border-gray-200" />
 
-        <div className="flex flex-wrap items-center text-sm gap-4 text-muted-foreground mb-2">
+        <div className="grid grid-cols-4 gap-x-8 gap-y-4 text-sm text-muted-foreground mb-6">
           <div className="flex items-center gap-1">
             <MapPin className="w-4 h-4" />
             <span>{lead.suburb}</span>
@@ -44,7 +61,7 @@ export function DeclinedLeadCard({ lead }: Props) {
 
         <hr className="my-4 border-t border-gray-200" />
 
-        <div className="flex flex-wrap items-center gap-4 mb-2 text-sm">
+        <div className="grid grid-cols-2 gap-x-8 gap-y-4 text-sm text-muted-foreground mb-6">
           <div className="flex items-center gap-1">
             <Phone className="w-4 h-4" style={{ color: "#ea580c" }} />
             <span style={{ color: "#ea580c" }}>{lead.phoneNumber}</span>

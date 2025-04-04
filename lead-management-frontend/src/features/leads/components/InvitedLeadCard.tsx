@@ -14,16 +14,32 @@ export function InvitedLeadCard({ lead, onAccept, onDecline }: Props) {
   const formattedDate = format(new Date(lead.createdAt), "MMMM d @ h:mm a")
 
   return (
-    <Card className="shadow-sm border rounded-md">
+    <Card className="shadow-sm border rounded-md mb-6">
       <CardContent className="p-6">
         {/* Cabeçalho */}
-        <div className="flex items-center gap-4 mb-6">
-          <div className="w-12 h-12 bg-orange-500 text-white rounded-full flex items-center justify-center text-xl font-bold">
+        <div className="grid grid-cols-2 gap-x-8 gap-y-4 text-sm text-muted-foreground mb-6">
+          {/* Avatar circular com letra inicial */}
+          <div
+            style={{
+              width: "64px",
+              height: "64px",
+              backgroundColor: "#ea580c",
+              color: "#ffffff",
+              fontSize: "24px",
+            }}
+            className="rounded-full flex items-center justify-center font-bold uppercase shadow-sm"
+          >
             {lead.firstName.charAt(0)}
           </div>
+
+          {/* Nome e data */}
           <div>
-            <div className="text-base font-semibold">{lead.firstName}</div>
-            <div className="text-sm text-muted-foreground">{formattedDate}</div>
+            <div className="text-base font-semibold text-black">
+              {lead.firstName}
+            </div>
+            <div className="text-sm text-gray-500">
+              {formattedDate}
+            </div>
           </div>
         </div>
 
