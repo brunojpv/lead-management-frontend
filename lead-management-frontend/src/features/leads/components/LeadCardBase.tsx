@@ -34,7 +34,7 @@ export function LeadCardBase({
       <CardContent
         className="p-6"
         style={{
-          height: "460px",
+          height: "300px",
           width: "600px",
           display: "flex",
           flexDirection: "column",
@@ -66,7 +66,7 @@ export function LeadCardBase({
           </div>
         </div>
 
-        <hr style={{ margin: "24px 0", width: "700px", borderTop: "1px solid #e5e7eb" }} />
+        <hr style={{ width: "700px", border: "none", borderTop: "1px solid #e5e7eb", margin: "16px 0" }} />
 
         {/* Informações principais */}
         <div
@@ -76,8 +76,8 @@ export function LeadCardBase({
             gap: "6px",
             fontSize: "14px",
             color: "#000000",
-            marginTop: "18px",
-            height: "8px",
+            marginLeft: "1px",
+            width: "100%",
           }}
         >
           <div className="flex items-center gap-1">
@@ -99,7 +99,7 @@ export function LeadCardBase({
           </div>
         </div>
 
-        <hr style={{ margin: "24px 0", width: "700px", borderTop: "1px solid #e5e7eb" }} />
+        <hr style={{ width: "700px", border: "none", borderTop: "1px solid #e5e7eb", margin: "16px 0" }} />
 
         {/* Contato (opcional) */}
         {showContact && (
@@ -112,6 +112,7 @@ export function LeadCardBase({
               color: "#ea580c",
               marginTop: "18px",
               marginBottom: "16px",
+              width: "100%",
             }}
           >
             <div className="flex items-center gap-1">
@@ -130,7 +131,7 @@ export function LeadCardBase({
           {lead.description || "Sem descrição."}
         </p>
 
-        <hr style={{ margin: "24px 0", width: "700px", borderTop: "1px solid #e5e7eb" }} />
+        <hr style={{ width: "700px", border: "none", borderTop: "1px solid #e5e7eb", margin: "16px 0" }} />
 
         {/* Ações (apenas para Invited) */}
         {showActions && (

@@ -60,7 +60,7 @@ export default function LeadTabsPage() {
         }}
       >
         <h1 style={{ fontSize: "28px", fontWeight: "bold", marginBottom: "24px", textAlign: "center" }}>
-          📋 Gestão de Leads
+          Gestão de Leads
         </h1>
 
         <Tabs defaultValue="invited" style={{ width: "100%" }}>
