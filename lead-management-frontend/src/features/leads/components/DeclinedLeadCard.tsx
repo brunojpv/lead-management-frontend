@@ -1,6 +1,17 @@
 import { LeadCardBase } from "./LeadCardBase"
 import { Lead } from "../types"
 
-export function DeclinedLeadCard({ lead }: { lead: Lead }) {
-  return <LeadCardBase lead={lead} backgroundColor="#ef4444" />
+interface Props {
+  lead: Lead
+}
+
+export function DeclinedLeadCard({ lead }: Props) {
+  return (
+    <LeadCardBase
+      lead={lead}
+      backgroundColor="#ef4444"
+      showActions={false}
+      showContact={true}
+    />
+  )
 }

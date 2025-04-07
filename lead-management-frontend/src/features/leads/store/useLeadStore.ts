@@ -1,46 +1,26 @@
 import { create } from "zustand"
 import { Lead, PaginatedResponse } from "../types"
-import { acceptLead as apiAcceptLead, declineLead as apiDeclineLead, getLeads } from "../api"
+import { getLeads, acceptLead, declineLead } from "../api"
 
-type LeadStatus = "Invited" | "Accepted" | "Declined"
-
-interface LeadStore {
-  leads: Record<LeadStatus, Lead[]>
-  pages: Record<LeadStatus, number>
-  totalPages: Record<LeadStatus, number>
+interface LeadsState {
+  leads: Lead[]
+  totalPages: number
   loading: boolean
-  fetchLeads: (status: LeadStatus, page?: number) => Promise<void>
-  acceptLead: (id: string) => Promise<void>
-  declineLead: (id: string) => Promise<void>
+  fetchLeads: (page: number, status: string, search?: string) => Promise<void>
+  acceptLeadById: (id: string) => Promise<void>
+  declineLeadById: (id: string) => Promise<void>
 }
 
-export const useLeadStore = create<LeadStore>((set, get) => ({
-  leads: {
-    Invited: [],
-    Accepted: [],
-    Declined: []
-  },
-  pages: {
-    Invited: 1,
-    Accepted: 1,
-    Declined: 1
-  },
-  totalPages: {
-    Invited: 1,
-    Accepted: 1,
-    Declined: 1
-  },
+export const useLeadsStore = create<LeadsState>((set, get) => ({
+  leads: [],
+  totalPages: 1,
   loading: false,
 
-  fetchLeads: async (status, page = 1) => {
+  fetchLeads: async (page, status, search = "") => {
     set({ loading: true })
     try {
-      const response: PaginatedResponse<Lead> = await getLeads({ page, status })
-      set((state) => ({
-        leads: { ...state.leads, [status]: response.data },
-        pages: { ...state.pages, [status]: page },
-        totalPages: { ...state.totalPages, [status]: response.totalPages }
-      }))
+      const response: PaginatedResponse<Lead> = await getLeads({ page, status, search })
+      set({ leads: response.data, totalPages: response.totalPages })
     } catch (error) {
       console.error("Erro ao buscar leads:", error)
     } finally {
@@ -48,15 +28,15 @@ export const useLeadStore = create<LeadStore>((set, get) => ({
     }
   },
 
-  acceptLead: async (id) => {
-    await apiAcceptLead(id)
-    await get().fetchLeads("Invited", get().pages.Invited)
-    await get().fetchLeads("Accepted", get().pages.Accepted)
+  acceptLeadById: async (id: string) => {
+    await acceptLead(id)
+    const updated = get().leads.map(lead => lead.id === id ? { ...lead, status: "Accepted", price: lead.price > 500 ? lead.price * 0.9 : lead.price } : lead)
+    set({ leads: updated })
   },
 
-  declineLead: async (id) => {
-    await apiDeclineLead(id)
-    await get().fetchLeads("Invited", get().pages.Invited)
-    await get().fetchLeads("Declined", get().pages.Declined)
+  declineLeadById: async (id: string) => {
+    await declineLead(id)
+    const updated = get().leads.map(lead => lead.id === id ? { ...lead, status: "Declined" } : lead)
+    set({ leads: updated })
   }
 }))
